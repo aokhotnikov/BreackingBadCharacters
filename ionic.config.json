@@ -1,0 +1,7 @@
+{
+  "name": "Breaking Bad characters",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,18 @@
+<ion-item *ngIf="user" [routerLink]="'/user/' + user.char_id" [detail]="false">
+  <ion-avatar slot="start">
+    <img src="{{ user.img }}" />
+  </ion-avatar>
+  <ion-label class="ion-text-wrap">
+    <h2>
+      {{ user.name }}
+      <span class="date">
+        <ion-note>{{ user.birthday }}</ion-note>
+        <ion-icon name="chevron-forward" size="small" *ngIf="isIos()"></ion-icon>
+      </span>
+    </h2>
+    <h3>{{ user.nickname }}</h3>
+    <p>
+      {{ user.status }}
+    </p>
+  </ion-label>
+</ion-item>
