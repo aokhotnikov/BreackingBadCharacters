@@ -6,20 +6,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen>
-  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-
-  <ion-toolbar class="search-bar" mode="ios">
+<ion-content [scrollY]="false">
+  <ion-toolbar class="search-bar" mode="ios" slot="fixed">
     <ion-searchbar mode="ios" placeholder="Find Name" [(ngModel)]="filterName" [debounce]="500"></ion-searchbar>
     <ion-searchbar mode="ios" placeholder="Filter Season" [(ngModel)]="filterSeason" [debounce]="500" inputmode="numeric"></ion-searchbar>
   </ion-toolbar>
 
-  <ion-list>
-    <app-user
-      *ngFor="let user of store.users | filter:'name':filterName | filter:'appearance':filterSeason; trackBy:trackItems"
-      [user]="user">
-    </app-user>
-  </ion-list>
+  <cdk-virtual-scroll-viewport itemSize="80" minBufferPx="800" maxBufferPx="1200" class="ion-content-scroll-host">
+    <ion-list>
+      <app-user
+        *cdkVirtualFor="let user of store.users | filter:'name':filterName | filter:'appearance':filterSeason; trackBy:trackItems"
+        [user]="user">
+      </app-user>
+    </ion-list>
+  </cdk-virtual-scroll-viewport>
 </ion-content>

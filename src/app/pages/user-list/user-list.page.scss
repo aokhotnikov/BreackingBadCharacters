@@ -1,7 +1,11 @@
 .search-bar {
-  position: sticky;
-  top: 0;
   ion-searchbar {
     padding: 0;
   }
+}
+
+cdk-virtual-scroll-viewport {
+  height: 100%;
+  width: 100%;
+  top: 104px
 }

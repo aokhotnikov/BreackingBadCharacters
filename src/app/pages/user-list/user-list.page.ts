@@ -23,11 +23,4 @@ export class UserListPage implements OnInit {
   trackItems(index: number, itemObject: User) {
     return itemObject.char_id;
   }
-
-  refresh(ev) {
-    setTimeout(() => {
-      ev.detail.complete();
-    }, 3000);
-  }
-
 }
